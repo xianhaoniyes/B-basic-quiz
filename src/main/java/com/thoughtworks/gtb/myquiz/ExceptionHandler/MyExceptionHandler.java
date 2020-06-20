@@ -5,6 +5,7 @@ import com.thoughtworks.gtb.myquiz.Exception.EducationNotFoundException;
 import com.thoughtworks.gtb.myquiz.Exception.NoSuchUserException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -23,6 +24,14 @@ public class MyExceptionHandler {
     public ResponseEntity<ErrorResult> handleNoSuchUserException(NoSuchUserException ex){
         ErrorResult errorResult= new ErrorResult(LocalDateTime.now(),HttpStatus.NOT_FOUND,"User not found",ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResult);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResult> MethodArgumentNotValidException(MethodArgumentNotValidException ex){
+        ErrorResult errorResult= new ErrorResult(LocalDateTime.now(),
+                                                HttpStatus.BAD_REQUEST,"the data you send does not match our constraints",
+                                                ex.getLocalizedMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
     }
 
 
