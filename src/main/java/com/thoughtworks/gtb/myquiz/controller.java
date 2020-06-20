@@ -9,7 +9,7 @@ public class controller {
     @CrossOrigin
     @GetMapping("/:{id}")
     public String getUserName(@PathVariable int id){
-        return "hello,this is xianhao";
+        return "hello,this is xdianhao";
     }
 
 
