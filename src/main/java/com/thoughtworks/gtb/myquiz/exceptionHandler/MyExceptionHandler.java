@@ -1,8 +1,8 @@
-package com.thoughtworks.gtb.myquiz.ExceptionHandler;
+package com.thoughtworks.gtb.myquiz.exceptionHandler;
 
 
-import com.thoughtworks.gtb.myquiz.Exception.EducationNotFoundException;
-import com.thoughtworks.gtb.myquiz.Exception.NoSuchUserException;
+import com.thoughtworks.gtb.myquiz.exception.EducationNotFoundException;
+import com.thoughtworks.gtb.myquiz.exception.NoSuchUserException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

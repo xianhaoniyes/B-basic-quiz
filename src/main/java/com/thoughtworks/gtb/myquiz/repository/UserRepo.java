@@ -1,6 +1,6 @@
 package com.thoughtworks.gtb.myquiz.repository;
 
-import com.thoughtworks.gtb.myquiz.Exception.NoSuchUserException;
+import com.thoughtworks.gtb.myquiz.exception.NoSuchUserException;
 import com.thoughtworks.gtb.myquiz.model.User;
 import org.springframework.stereotype.Repository;
 

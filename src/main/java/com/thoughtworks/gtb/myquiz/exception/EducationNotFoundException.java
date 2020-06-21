@@ -1,4 +1,4 @@
-package com.thoughtworks.gtb.myquiz.Exception;
+package com.thoughtworks.gtb.myquiz.exception;
 
 public class EducationNotFoundException extends Exception {
     public EducationNotFoundException() {

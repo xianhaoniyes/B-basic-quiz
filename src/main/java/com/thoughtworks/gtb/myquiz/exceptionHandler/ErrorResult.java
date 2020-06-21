@@ -1,4 +1,4 @@
-package com.thoughtworks.gtb.myquiz.ExceptionHandler;
+package com.thoughtworks.gtb.myquiz.exceptionHandler;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

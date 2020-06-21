@@ -1,8 +1,8 @@
 package com.thoughtworks.gtb.myquiz.controller;
 
 
-import com.thoughtworks.gtb.myquiz.Exception.EducationNotFoundException;
-import com.thoughtworks.gtb.myquiz.Exception.NoSuchUserException;
+import com.thoughtworks.gtb.myquiz.exception.EducationNotFoundException;
+import com.thoughtworks.gtb.myquiz.exception.NoSuchUserException;
 import com.thoughtworks.gtb.myquiz.model.Education;
 import com.thoughtworks.gtb.myquiz.model.User;
 import com.thoughtworks.gtb.myquiz.service.UserService;
