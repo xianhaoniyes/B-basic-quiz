@@ -5,6 +5,7 @@ import com.thoughtworks.gtb.myquiz.Exception.EducationNotFoundException;
 import com.thoughtworks.gtb.myquiz.Exception.NoSuchUserException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -28,9 +29,13 @@ public class MyExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResult> MethodArgumentNotValidException(MethodArgumentNotValidException ex){
+
+        FieldError error = ex.getBindingResult().getFieldError();
+
+        String errorMessage = error!=null? error.getDefaultMessage():"Something went wrong";
         ErrorResult errorResult= new ErrorResult(LocalDateTime.now(),
                                                 HttpStatus.BAD_REQUEST,"the data you send does not match our constraints",
-                                                ex.getLocalizedMessage());
+                                                errorMessage);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
     }
 
