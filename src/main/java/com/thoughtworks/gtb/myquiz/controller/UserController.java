@@ -33,21 +33,24 @@ public class UserController {
     }
 
     @PostMapping("/{id}/educations")
-    public ResponseEntity<Education> putEducation(@PathVariable("id") Long userId, @RequestBody @Valid Education education) throws NoSuchUserException{
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.putEducation(userId,education));
+    @ResponseStatus(HttpStatus.CREATED)
+    public Education putEducation(@PathVariable("id") Long userId, @RequestBody @Valid Education education) throws NoSuchUserException{
+        return userService.putEducation(userId,education);
 
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable("id") Long userId) throws NoSuchUserException{
-        return ResponseEntity.status(HttpStatus.OK).body(userService.getUser(userId));
+    @ResponseStatus(HttpStatus.OK)
+    public User getUser(@PathVariable("id") Long userId) throws NoSuchUserException{
+        return userService.getUser(userId);
     }
 
     @GetMapping("/{id}/educations")
-    public ResponseEntity<List<Education>> getEducationList(@PathVariable("id") Long userId)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Education> getEducationList(@PathVariable("id") Long userId)
             throws EducationNotFoundException,
             NoSuchUserException {
-        return  ResponseEntity.status(HttpStatus.OK).body(userService.getEducationList(userId));
+        return  userService.getEducationList(userId);
     }
 
 
