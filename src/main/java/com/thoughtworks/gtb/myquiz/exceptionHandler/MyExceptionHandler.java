@@ -17,13 +17,13 @@ public class MyExceptionHandler {
 
     @ExceptionHandler(EducationNotFoundException.class)
     public ResponseEntity<ErrorResult> handleEducationNotFoundException(EducationNotFoundException ex){
-        ErrorResult errorResult= new ErrorResult(LocalDateTime.now(),HttpStatus.NOT_FOUND,"Education record not found",ex.getMessage());
+        ErrorResult errorResult= new ErrorResult(LocalDateTime.now(),HttpStatus.NOT_FOUND,404,ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResult);
     }
 
     @ExceptionHandler(NoSuchUserException.class)
     public ResponseEntity<ErrorResult> handleNoSuchUserException(NoSuchUserException ex){
-        ErrorResult errorResult= new ErrorResult(LocalDateTime.now(),HttpStatus.NOT_FOUND,"User not found",ex.getMessage());
+        ErrorResult errorResult= new ErrorResult(LocalDateTime.now(),HttpStatus.NOT_FOUND,404,ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResult);
     }
 
@@ -34,7 +34,7 @@ public class MyExceptionHandler {
 
         String errorMessage = error!=null? error.getDefaultMessage():"Something went wrong";
         ErrorResult errorResult= new ErrorResult(LocalDateTime.now(),
-                                                HttpStatus.BAD_REQUEST,"the data you send does not match our constraints",
+                                                HttpStatus.BAD_REQUEST,400,
                                                 errorMessage);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
     }

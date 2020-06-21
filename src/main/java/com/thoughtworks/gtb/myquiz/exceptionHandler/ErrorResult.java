@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ErrorResult {
 
-    private LocalDateTime time;
-    private HttpStatus httpStatus;
-    private String error;
+    private LocalDateTime timestamp;
+    private HttpStatus error;
+    private Integer status;
     private String message;
 
 }
