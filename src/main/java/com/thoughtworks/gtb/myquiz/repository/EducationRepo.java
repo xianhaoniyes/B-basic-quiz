@@ -18,10 +18,23 @@ public class EducationRepo {
 
     public EducationRepo(){
 
-        //the hardcode  user0 is only for test use
+        //the hardcode  user1 is only for test use
         educationListHashMap = new HashMap<>();
         EducationList educationList = new EducationList();
-        educationList.addEducation(new Education(1L,2017L,"Bachelor","xianhao studied in south west jiaotong university"));
+        educationList.addEducation(new Education(1L,2013L,"Bachelor", "Born as the bright summer flowers" +
+                                                "Do not withered undefeated fiery demon rule " +
+                                                "Heart rate and breathing to bear the load of the cumbersome "));
+
+        educationList.addEducation(new Education(1L,2017L,"Master", "I heard the music, from the moon and carcass " +
+                                                "Auxiliary extreme aestheticism bait to capture misty " +
+                                                "Filling the intense life, but also filling the pure " +
+                                                "There are always memories throughout the earth " +
+                                                "I believe I am"));
+
+        educationList.addEducation(new Education(1L, 2019L,"Doctor","Died as the quiet beauty of autumn leaves " +
+                                                "Sheng is not chaos, smoke gesture " +
+                                                "Even wilt also retained bone proudly Qing Feng muscle"));
+
         educationListHashMap.put(1L,educationList);
     }
 

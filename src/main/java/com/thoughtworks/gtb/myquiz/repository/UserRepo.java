@@ -14,7 +14,12 @@ public class UserRepo {
     public UserRepo(){
         userHashMap = new HashMap<>();
         // user0 is only for test use
-        User user = new User(1L,"xianhao",25L,"this is xianhao's photo","xianhao is a cute boy");
+        User user = new User(1L,"xianhao",25L,"this is xianhao's photo",
+                "I heard the echo, from the valleys and the heart " +
+                        "Open to the lonely soul of sickle harvesting " +
+                        "Repeat outrightly, but also repeat the well-being of " +
+                        "Eventually swaying in the desert oasis " +
+                        "I believe I am");
         userHashMap.put(1L,user);
     }
 
