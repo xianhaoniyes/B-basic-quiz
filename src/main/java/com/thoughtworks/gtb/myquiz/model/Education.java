@@ -16,6 +16,7 @@ import javax.validation.constraints.Size;
 public class Education {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     @NotNull(message = "year can not be null")

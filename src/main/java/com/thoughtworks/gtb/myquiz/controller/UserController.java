@@ -35,7 +35,8 @@ public class UserController {
     @PostMapping("/{id}/educations")
     @ResponseStatus(HttpStatus.CREATED)
     public Education putEducation(@PathVariable("id") Long userId, @RequestBody @Valid Education education) throws NoSuchUserException{
-        return userService.putEducation(userId,education);
+        education.setId(userId);
+        return userService.putEducation(education);
 
     }
 
