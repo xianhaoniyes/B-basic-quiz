@@ -1,19 +1,22 @@
 package com.thoughtworks.gtb.myquiz.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.persistence.*;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Entity
 public class Education {
 
-    private Long userId;
+    @Id
+    private Long Id;
 
     @NotNull(message = "year can not be null")
     private Long year;
@@ -25,5 +28,8 @@ public class Education {
     @NotNull(message = "description can not be null")
     @Size(min=1,max=256, message = "the length of the description must be between 1 and 4096")
     private String description;
+
+    @ManyToOne
+    private User user;
 
 }
